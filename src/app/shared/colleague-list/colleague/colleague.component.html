@@ -1,5 +1,6 @@
-<div class="colleague-container">
-  <img ngSrc="{{colleague.photo}}" alt="photo de {{colleague.pseudo}}" width="100px" height="75px">
+<div class="colleague-container border-1">
+  <p>{{colleague.photo}}</p>
   <p><strong>{{colleague.pseudo}}</strong></p>
-  <tc-like-hate></tc-like-hate>
+  <p>{{colleague.score}}</p>
+  <tc-like-hate (choice)="vote($event)"></tc-like-hate>
 </div>

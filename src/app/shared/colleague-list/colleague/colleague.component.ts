@@ -7,9 +7,9 @@ import {Colleague} from "../../../models/colleague";
   styleUrls: ['./colleague.component.scss']
 })
 export class ColleagueComponent {
-  @Input() colleague: Colleague = {
-    "pseudo": 'none',
-    "score": 100,
-    "photo": 'https://sample-photo.com'
+  @Input() colleague!: Colleague;
+
+  vote(choice: number) {
+    this.colleague.score += choice;
   }
 }
