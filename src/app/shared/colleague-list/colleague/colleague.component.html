@@ -1,6 +1,6 @@
 <div class="colleague-container border-1">
   <img src="{{colleague.photo}}" alt="colleague icon" height="170" width="170">
   <p><strong>{{colleague.pseudo | uppercase}}</strong></p>
-  <p>{{colleague.score}}</p>
+  <p>{{colleague.score | score}}</p>
   <tc-like-hate (choice)="vote($event)" [isHateEnabled]="isHateEnabled" [isLikeEnabled]="isLikeEnabled"></tc-like-hate>
 </div>

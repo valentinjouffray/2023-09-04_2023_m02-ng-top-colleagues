@@ -4,6 +4,7 @@ import { ColleagueListComponent } from './colleague-list/colleague-list.componen
 import { ColleagueComponent } from './colleague-list/colleague/colleague.component';
 import { LikeHateComponent } from './colleague-list/colleague/like-hate/like-hate.component';
 import { VotingHistoryComponent } from './voting-history/voting-history.component';
+import { ScorePipe } from './pipes/score.pipe';
 
 
 
@@ -12,7 +13,8 @@ import { VotingHistoryComponent } from './voting-history/voting-history.componen
     ColleagueListComponent,
     ColleagueComponent,
     LikeHateComponent,
-    VotingHistoryComponent
+    VotingHistoryComponent,
+    ScorePipe
   ],
   imports: [
     CommonModule,
