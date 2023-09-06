@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter, Input} from '@angular/core';
 import {LikeHate} from "../../../../models/like-hate";
 
 @Component({
@@ -8,6 +8,8 @@ import {LikeHate} from "../../../../models/like-hate";
 })
 export class LikeHateComponent {
   @Output() choice = new EventEmitter<LikeHate>();
+  @Input() isLikeEnabled!: boolean;
+  @Input() isHateEnabled!: boolean;
 
   likeVote = LikeHate.LIKE;
   hateVote = LikeHate.HATE;

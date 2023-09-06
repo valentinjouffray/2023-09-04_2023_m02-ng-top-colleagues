@@ -1,2 +1,12 @@
-<button type="button" (click)="vote(likeVote)">J'aime</button>
-<button type="button" (click)="vote(hateVote)">Je déteste</button>
+<ng-container *ngIf="isLikeEnabled; else likeDisabled">
+  <button type="button" (click)="vote(likeVote)">J'aime</button>
+</ng-container>
+<ng-template #likeDisabled>
+  <button type="button" disabled>J'aime</button>
+</ng-template>
+<ng-container *ngIf="isHateEnabled; else hateDisabled">
+  <button type="button" (click)="vote(hateVote)">Je déteste</button>
+</ng-container>
+<ng-template #hateDisabled>
+  <button type="button" disabled>Je déteste</button>
+</ng-template>

@@ -11,12 +11,17 @@ export class ColleagueListComponent {
     {
       "pseudo": 'none',
       "score": 100,
-      "photo": 'https://sample-photo.com'
+      "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
     },
     {
       "pseudo": 'valentin',
       "score": 500,
-      "photo": 'https://sample-photo.com'
+      "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
+    },
+    {
+      "pseudo": 'IDK',
+      "score": 900,
+      "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
     }
   ]
 }
