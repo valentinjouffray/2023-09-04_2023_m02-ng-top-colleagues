@@ -1,5 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {Colleague} from "../../../models/colleague";
+import {VoteService} from "../../../providers/vote.service";
+import {LikeHate} from "../../../models/like-hate";
 
 @Component({
   selector: 'tc-colleague',
@@ -7,6 +9,8 @@ import {Colleague} from "../../../models/colleague";
   styleUrls: ['./colleague.component.scss']
 })
 export class ColleagueComponent {
+  voteService = inject(VoteService);
+
   @Input() colleague: Colleague = {
     "pseudo": "undefined",
     "score": 100,
@@ -15,9 +19,10 @@ export class ColleagueComponent {
   isLikeEnabled: boolean = this.colleague.score < 1000;
   isHateEnabled: boolean = this.colleague.score > (-1000);
 
-  vote(choice: number) {
+  vote(choice: LikeHate) {
     this.colleague.score += choice;
     this.checkScore();
+    this.addVote(choice);
   }
 
   private checkScore() {
@@ -25,5 +30,12 @@ export class ColleagueComponent {
     if (this.colleague.score > 1000) this.colleague.score = 1000;
     this.isHateEnabled = this.colleague.score > (-1000);
     if (this.colleague.score < -1000) this.colleague.score = -1000;
+  }
+
+  addVote(choice: LikeHate): boolean {
+    return this.voteService.addVote({
+      colleague: this.colleague,
+      vote: choice
+    });
   }
 }

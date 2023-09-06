@@ -14,7 +14,7 @@ export class LikeHateComponent {
   likeVote = LikeHate.LIKE;
   hateVote = LikeHate.HATE;
 
-  vote(value: number) {
+  vote(value: LikeHate) {
     this.choice.emit(value);
   }
 }

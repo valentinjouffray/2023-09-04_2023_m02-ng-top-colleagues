@@ -17,7 +17,16 @@ export class VotingHistoryComponent {
   // }
 
   deleteVote(vote: Vote) {
-    const voteToRemove = this.votes.indexOf(vote);
-    if (voteToRemove !== -1) this.votes.splice(voteToRemove, 1);
+    // const voteToRemove = this.votes.indexOf(vote);
+    // if (voteToRemove !== -1) this.votes.splice(voteToRemove, 1);
+    this.voteService.revokeVote(vote);
+  }
+
+  voteRemark(voteValue: number): string {
+    if (voteValue > 0) {
+      return `aimé(e)`;
+    } else {
+      return 'détesté(e)';
+    }
   }
 }

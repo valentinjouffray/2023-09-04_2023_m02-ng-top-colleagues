@@ -3,8 +3,7 @@
   <ul *ngFor="let vote of votes" class="list-group">
     <li class="list-group-item">
       <p>{{vote.colleague.pseudo | uppercase}}</p>
-      <p>{{vote.colleague.score}}</p>
-      <p>{{vote.vote.toString()}}</p>
+      <p>{{vote.colleague.pseudo | uppercase}} est {{voteRemark(vote.vote)}}, son score est maintenant de {{vote.colleague.score}}</p>
       <button (click)="deleteVote(vote)">Supprimer</button>
     </li>
   </ul>
