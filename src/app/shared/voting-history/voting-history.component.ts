@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {Vote} from "../../models/vote";
-import {LikeHate} from "../../models/like-hate";
+import {VoteService} from "../../providers/vote.service";
 
 @Component({
   selector: 'tc-voting-history',
@@ -8,28 +8,13 @@ import {LikeHate} from "../../models/like-hate";
   styleUrls: ['./voting-history.component.scss']
 })
 export class VotingHistoryComponent {
-  votes: Vote[] = [
-    {
-      colleague: {
-        pseudo: "None",
-        score: 100,
-        photo: "none"
-      },
-      vote: LikeHate.LIKE
-    },
-    {
-      colleague: {
-        pseudo: "Nobody likes me",
-        score: -500,
-        photo: "none"
-      },
-      vote: LikeHate.HATE
-    }
-  ];
+  voteService = inject(VoteService);
 
-  addVote(vote: Vote) {
-    this.votes?.push(vote);
-  }
+  votes: Vote[] = this.voteService.list();
+
+  // addVote(vote: Vote) {
+  //   this.votes?.push(vote);
+  // }
 
   deleteVote(vote: Vote) {
     const voteToRemove = this.votes.indexOf(vote);
