@@ -1,1 +1,11 @@
-<p>voting-history works!</p>
+<div class="container border-black border-1">
+  <h1 class="h3">Historique</h1>
+  <ul *ngFor="let vote of votes" class="list-group">
+    <li class="list-group-item">
+      <p>{{vote.colleague.pseudo | uppercase}}</p>
+      <p>{{vote.colleague.score}}</p>
+      <p>{{vote.vote.toString()}}</p>
+      <button>Supprimer</button>
+    </li>
+  </ul>
+</div>

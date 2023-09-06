@@ -21,7 +21,8 @@ import { ScorePipe } from './pipes/score.pipe';
     NgOptimizedImage
   ],
   exports: [
-    ColleagueListComponent
+    ColleagueListComponent,
+    VotingHistoryComponent
   ]
 })
 export class SharedModule { }

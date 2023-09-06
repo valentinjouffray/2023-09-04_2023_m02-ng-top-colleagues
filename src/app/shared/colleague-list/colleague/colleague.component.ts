@@ -22,6 +22,8 @@ export class ColleagueComponent {
 
   private checkScore() {
     this.isLikeEnabled = this.colleague.score < 1000;
+    if (this.colleague.score > 1000) this.colleague.score = 1000;
     this.isHateEnabled = this.colleague.score > (-1000);
+    if (this.colleague.score < -1000) this.colleague.score = -1000;
   }
 }

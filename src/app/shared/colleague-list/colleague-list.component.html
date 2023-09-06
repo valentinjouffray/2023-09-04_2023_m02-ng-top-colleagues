@@ -1,6 +1,8 @@
 <button type="button">Rafraîchir la liste</button>
-<ul>
-  <li *ngFor="let colleague of colleagues">
+<section class="container">
+<ul class="list-inline">
+  <li *ngFor="let colleague of colleagues" class="list-inline-item col-md-3">
     <tc-colleague [colleague]="colleague"></tc-colleague>
   </li>
 </ul>
+</section>
