@@ -30,4 +30,9 @@ export class VotingHistoryComponent {
   addVote(vote: Vote) {
     this.votes?.push(vote);
   }
+
+  deleteVote(vote: Vote) {
+    const voteToRemove = this.votes.indexOf(vote);
+    if (voteToRemove !== -1) this.votes.splice(voteToRemove, 1);
+  }
 }

@@ -5,7 +5,7 @@
       <p>{{vote.colleague.pseudo | uppercase}}</p>
       <p>{{vote.colleague.score}}</p>
       <p>{{vote.vote.toString()}}</p>
-      <button>Supprimer</button>
+      <button (click)="deleteVote(vote)">Supprimer</button>
     </li>
   </ul>
 </div>
