@@ -33,8 +33,9 @@ export class ColleagueComponent {
   }
 
   addVote(choice: LikeHate): boolean {
+    const duplicateColleague = {...this.colleague};
     return this.voteService.addVote({
-      colleague: this.colleague,
+      colleague: duplicateColleague,
       vote: choice
     });
   }

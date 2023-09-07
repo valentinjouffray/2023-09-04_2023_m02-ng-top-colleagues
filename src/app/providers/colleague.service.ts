@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Colleague} from "../models/colleague";
-import {Vote} from "../models/vote";
 
 @Injectable({
   providedIn: 'root'
@@ -57,8 +56,12 @@ export class ColleagueService {
     return this.colleagues;
   }
 
-  changeScore(vote: Vote) {
-    const indexOfColleague = this.colleagues.indexOf(vote.colleague);
-    this.colleagues[indexOfColleague].score += -(vote.vote);
+  changeScore(pseudo: string, scoreToDeduct: number) {
+    let indexOfColleague = -1;
+    let currentIndex = 0;
+    this.colleagues.forEach(colleague => {
+      colleague.pseudo === pseudo ? indexOfColleague = currentIndex : currentIndex += 1;
+    })
+    this.colleagues[indexOfColleague].score -= scoreToDeduct;
   }
 }
