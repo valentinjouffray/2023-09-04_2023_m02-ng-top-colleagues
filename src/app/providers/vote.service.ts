@@ -2,62 +2,44 @@ import {inject, Injectable} from '@angular/core';
 import {Vote} from "../models/vote";
 import {ColleagueService} from "./colleague.service";
 import {Observable, Subject} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class VoteService {
   colleagueService = inject(ColleagueService);
+  http = inject(HttpClient);
+  voteApiUrl: string = 'https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes';
 
   likeCounter$ = new Subject<number>();
   hateCounter$ = new Subject<number>();
   likes: number = 0;
   hates: number = 0;
+  newVote$ = new Subject<Vote>();
 
-  votes: Vote[] = [
-    // {
-    //   colleague: {
-    //     pseudo: "None",
-    //     score: 100,
-    //     photo: "none"
-    //   },
-    //   vote: LikeHate.LIKE
-    // },
-    // {
-    //   colleague: {
-    //     pseudo: "Nobody likes me",
-    //     score: -500,
-    //     photo: "none"
-    //   },
-    //   vote: LikeHate.HATE
-    // }
-  ];
-  list(): Vote[] {
-    return this.votes;
+  getVoteList(): Observable<Vote[]> {
+    return this.http.get<Vote[]>(this.voteApiUrl);
   }
 
-  addVote(vote: Vote): boolean {
-    const initialVoteLength = this.votes.length;
-    const actualVoteLength = this.votes.unshift(vote);
-    if (vote.vote > 0) {
-      this.likes += 1;
-      this.likeCounter$.next(this.likes);
-    } else {
-      this.hates += 1;
-      this.hateCounter$.next(this.hates);
-    }
-    return ( actualVoteLength > initialVoteLength);
+  addVote(vote: Vote) {
+    let likeOrHate: string;
+    (vote.vote > 0) ? likeOrHate = 'LIKE' : likeOrHate = 'HATE';
+    return this.http.post(this.voteApiUrl, {
+      "pseudo": vote.colleague.pseudo,
+      "like_hate": likeOrHate
+    });
   }
 
-  revokeVote(vote: Vote): boolean {
-    const indexOfVote = this.votes.indexOf(vote);
-    if (indexOfVote === -1) {
-      return false
-    }
-    this.votes.splice(indexOfVote, 1);
-    this.colleagueService.changeScore(vote.colleague.pseudo, vote.vote);
-    return true;
-  }
+  // revokeVote(vote: Vote): boolean {
+  //   const indexOfVote = this.votes.indexOf(vote);
+  //   if (indexOfVote === -1) {
+  //     return false
+  //   }
+  //   this.votes.splice(indexOfVote, 1);
+  //   this.colleagueService.changeScore(vote.colleague.pseudo, vote.vote);
+  //   return true;
+  // }
 
   subscribeToLikeCounter(): Observable<number> {
     return this.likeCounter$.asObservable();
@@ -73,6 +55,14 @@ export class VoteService {
 
   unsubscribeToHateCounter() {
     this.hateCounter$.unsubscribe();
+  }
+
+  subscribeToNewVotes(): Observable<Vote> {
+    return this.newVote$.asObservable();
+  }
+
+  unsubsscribeFromNewVotes() {
+    this.newVote$.unsubscribe();
   }
 
 }

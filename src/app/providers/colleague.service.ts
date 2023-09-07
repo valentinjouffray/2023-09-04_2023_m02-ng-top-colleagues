@@ -11,53 +11,8 @@ export class ColleagueService {
 
   colleagueApiUrl = 'https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues';
 
-  colleagues: Colleague[] = [
-    // {
-    //   "pseudo": 'public enemy no1',
-    //   "score": -1000,
-    //   "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
-    // },
-    // {
-    //   "pseudo": 'valentin',
-    //   "score": 500,
-    //   "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
-    // },
-    // {
-    //   "pseudo": 'IDK',
-    //   "score": 900,
-    //   "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
-    // },
-    // {
-    //   "pseudo": 'OK',
-    //   "score": -900,
-    //   "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
-    // },
-    // {
-    //   "pseudo": 'IDK',
-    //   "score": 100,
-    //   "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
-    // },
-    // {
-    //   "pseudo": 'IDK',
-    //   "score": 100,
-    //   "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
-    // },
-    // {
-    //   "pseudo": 'IDK',
-    //   "score": 100,
-    //   "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
-    // },
-    // {
-    //   "pseudo": 'IDK',
-    //   "score": 100,
-    //   "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
-    // },
-    // {
-    //   "pseudo": 'IDK',
-    //   "score": 100,
-    //   "photo": 'https://freesvg.org/img/abstract-user-flat-4.png'
-    // }
-  ]
+  colleagues: Colleague[] = []
+
   list(): Colleague[] {
     return this.colleagues;
   }

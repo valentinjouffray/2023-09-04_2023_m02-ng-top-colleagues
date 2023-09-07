@@ -1,10 +1,11 @@
-<div class="container border-black border-1">
+<div class="container">
   <h1 class="h3">Historique</h1>
-  <ul *ngFor="let vote of votes" class="list-group">
+  <ul *ngFor="let vote of votes" class="list-group d-flex flex-column-reverse">
     <li class="list-group-item">
       <p>{{vote.colleague.pseudo | uppercase}}</p>
       <p>{{vote.colleague.pseudo | uppercase}} est {{voteRemark(vote.vote)}}, son score est maintenant de {{vote.colleague.score}}</p>
-      <button (click)="deleteVote(vote)">Supprimer</button>
+<!--      <button (click)="deleteVote(vote)">Supprimer</button>-->
+      <button>Supprimer</button>
     </li>
   </ul>
 </div>
