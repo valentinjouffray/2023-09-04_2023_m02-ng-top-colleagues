@@ -19,7 +19,7 @@ export class VotingHistoryComponent implements OnInit, OnDestroy {
   private getVoteList() {
     this.voteService.getVoteList().subscribe((votes: Vote[]) => {
       this.votes = votes;
-      this.voteService.subscribeToNewVotes().subscribe((vote: Vote) => this.votes.push(vote));
+      this.voteService.subscribeToNewVotes().subscribe((vote: Vote) => this.votes.unshift(vote));
     });
   }
 
