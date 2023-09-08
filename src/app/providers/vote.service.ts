@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {Vote} from "../models/vote";
 import {ColleagueService} from "./colleague.service";
-import {Observable, Subject} from "rxjs";
+import {Observable, ReplaySubject, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -16,7 +16,7 @@ export class VoteService {
   hateCounter$ = new Subject<number>();
   likes: number = 0;
   hates: number = 0;
-  newVote$ = new Subject<Vote>();
+  newVote$ = new ReplaySubject<Vote>();
 
   getVoteList(): Observable<Vote[]> {
     return this.http.get<Vote[]>(this.voteApiUrl);

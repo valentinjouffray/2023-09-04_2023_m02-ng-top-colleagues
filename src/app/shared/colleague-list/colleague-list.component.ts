@@ -13,8 +13,16 @@ export class ColleagueListComponent implements OnInit {
   colleagues: Colleague[] = this.colleagueService.list();
 
   ngOnInit() {
+    this.getColleagueList();
+  }
+
+  private getColleagueList() {
     this.colleagueService.getColleagueList().subscribe(colleagues => {
       this.colleagues = colleagues;
-    })
+    });
+  }
+
+  refreshList() {
+    this.getColleagueList();
   }
 }

@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="h3">Historique</h1>
-  <ul *ngFor="let vote of votes" class="list-group d-flex flex-column-reverse">
+  <ul *ngFor="let vote of votes" class="list-group d-flex">
     <li class="list-group-item">
       <p>{{vote.colleague.pseudo | uppercase}}</p>
       <p>{{vote.colleague.pseudo | uppercase}} est {{voteRemark(vote.vote)}}, son score est maintenant de {{vote.colleague.score}}</p>
