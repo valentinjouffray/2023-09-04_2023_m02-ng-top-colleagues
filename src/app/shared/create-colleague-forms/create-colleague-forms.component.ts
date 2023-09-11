@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {ColleagueDetails} from "../../models/colleague-details";
+import {ColleagueService} from "../../providers/colleague.service";
 
 @Component({
   selector: 'tc-create-colleague-forms',
@@ -7,6 +8,8 @@ import {ColleagueDetails} from "../../models/colleague-details";
   styleUrls: ['./create-colleague-forms.component.scss']
 })
 export class CreateColleagueFormsComponent {
+  colleagueService = inject(ColleagueService);
+
   colleague: ColleagueDetails = {
     pseudo: '',
     score: 0,
@@ -16,7 +19,8 @@ export class CreateColleagueFormsComponent {
   }
 
   addColleague(colleague: ColleagueDetails) {
-    console.log('Collègue: ', colleague);
-    console.error("Method 'addColleague' not yet implemented");
+    this.colleagueService.addColleague(colleague).subscribe(response => {
+      console.log(response);
+    });
   }
 }

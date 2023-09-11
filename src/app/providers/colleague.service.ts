@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {Colleague} from "../models/colleague";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {ColleagueDetails} from "../models/colleague-details";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,18 @@ export class ColleagueService {
 
   getColleagueList(): Observable<Colleague[]> {
     return this.http.get<Colleague[]>(this.colleagueApiUrl);
+  }
+
+  addColleague(colleague: ColleagueDetails) {
+    return this.http.post(
+      this.colleagueApiUrl,
+      {
+        "pseudo": colleague.pseudo,
+        "last": colleague.lastName,
+        "first": colleague.firstName,
+        "photo": colleague.photoUrl
+      }
+    );
   }
 
   changeScore(pseudo: string, scoreToDeduct: number) {
