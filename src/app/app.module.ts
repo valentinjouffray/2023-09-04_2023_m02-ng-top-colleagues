@@ -6,17 +6,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { WelcomeModule } from './welcome/welcome.module';
 import { SharedModule } from './shared/shared.module';
+import {CreateColleagueModule} from "./create-colleague/create-colleague.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    NgbModule,
-    WelcomeModule,
-    SharedModule
-  ],
+    imports: [
+        BrowserModule,
+        NgbModule,
+        WelcomeModule,
+        SharedModule,
+        CreateColleagueModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

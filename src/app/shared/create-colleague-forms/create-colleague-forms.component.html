@@ -1,0 +1,28 @@
+<form class="container" #formCtrl="ngForm">
+  <p>
+    <label for="pseudo">Pseudo : </label>
+    <input type="text" name="pseudo" id="pseudo" required [(ngModel)]="colleague.pseudo" #pseudo="ngModel">
+    <span *ngIf="pseudo.invalid && pseudo.dirty">Pseudo invalide</span>
+  </p>
+  <p>
+    <label for="last">Nom : </label>
+    <input type="text" name="last" id="last" required minlength="2" [(ngModel)]="colleague.lastName" #lastName="ngModel">
+    <span *ngIf="lastName.invalid && lastName.dirty">Nom invalide</span>
+  </p>
+  <p>
+    <label for="first">Prénom : </label>
+    <input type="text" name="first" id="first" required minlength="2" [(ngModel)]="colleague.firstName" #firstName="ngModel">
+    <span *ngIf="firstName.invalid && firstName.dirty">Prénom invalide</span>
+  </p>
+  <p>
+    <label for="photo">URL de photo : </label>
+    <input type="url" name="photo" id="photo" required [(ngModel)]="colleague.photoUrl" #photoUrl="ngModel">
+    <span *ngIf="photoUrl.invalid && photoUrl.dirty">Url invalide</span>
+  </p>
+  <ng-container *ngIf="formCtrl.valid; else buttonDisabled">
+    <button (click)="addColleague(colleague)" type="submit">Ajouter</button>
+  </ng-container>
+  <ng-template #buttonDisabled>
+    <button type="submit" disabled>Ajouter</button>
+  </ng-template>
+</form>
