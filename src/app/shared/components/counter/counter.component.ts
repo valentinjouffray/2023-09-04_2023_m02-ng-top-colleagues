@@ -1,5 +1,5 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
-import {VoteService} from "../../providers/vote.service";
+import {VoteService} from "../../../providers/vote.service";
 
 @Component({
   selector: 'tc-counter',

@@ -1,6 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {Colleague} from "../../models/colleague";
-import {ColleagueService} from "../../providers/colleague.service";
+import {Colleague} from "../../../models/colleague";
+import {ColleagueService} from "../../../providers/colleague.service";
 
 @Component({
   selector: 'tc-colleague-list',

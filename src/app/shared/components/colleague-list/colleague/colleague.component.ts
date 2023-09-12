@@ -1,8 +1,8 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
-import {Colleague} from "../../../models/colleague";
-import {VoteService} from "../../../providers/vote.service";
-import {LikeHate} from "../../../models/like-hate";
-import {Vote} from "../../../models/vote";
+import {Colleague} from "../../../../models/colleague";
+import {VoteService} from "../../../../providers/vote.service";
+import {LikeHate} from "../../../../models/like-hate";
+import {Vote} from "../../../../models/vote";
 
 @Component({
   selector: 'tc-colleague',

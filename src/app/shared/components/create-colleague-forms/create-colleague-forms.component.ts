@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
-import {ColleagueDetails} from "../../models/colleague-details";
-import {ColleagueService} from "../../providers/colleague.service";
+import {ColleagueDetails} from "../../../models/colleague-details";
+import {ColleagueService} from "../../../providers/colleague.service";
 
 @Component({
   selector: 'tc-create-colleague-forms',
