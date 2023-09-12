@@ -9,6 +9,8 @@ import { CounterComponent } from './counter/counter.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CreateColleagueFormsComponent } from './create-colleague-forms/create-colleague-forms.component';
 import {FormsModule} from "@angular/forms";
+import { FirstLastValidatorDirective } from './validators/first-last-validator.directive';
+import { PseudoValidatorDirective } from './validators/pseudo-validator.directive';
 
 
 
@@ -20,7 +22,9 @@ import {FormsModule} from "@angular/forms";
     VotingHistoryComponent,
     ScorePipe,
     CounterComponent,
-    CreateColleagueFormsComponent
+    CreateColleagueFormsComponent,
+    FirstLastValidatorDirective,
+    PseudoValidatorDirective
   ],
   imports: [
     CommonModule,

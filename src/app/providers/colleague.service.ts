@@ -22,6 +22,10 @@ export class ColleagueService {
     return this.http.get<Colleague[]>(this.colleagueApiUrl);
   }
 
+  getColleagueDetails(pseudo: string): Observable<ColleagueDetails> {
+    return this.http.get<ColleagueDetails>(this.colleagueApiUrl + '/' + pseudo);
+  }
+
   addColleague(colleague: ColleagueDetails) {
     return this.http.post(
       this.colleagueApiUrl,
