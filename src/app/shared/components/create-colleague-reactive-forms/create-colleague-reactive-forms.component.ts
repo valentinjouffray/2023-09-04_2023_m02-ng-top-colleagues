@@ -6,6 +6,7 @@ import {FirstLastValidatorDirective} from "../../validators/first-last-validator
 
 import {ColleagueDetails} from "../../../models/colleague-details";
 import {ColleagueService} from "../../../providers/colleague.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'tc-create-colleague-reactive-forms',
@@ -13,8 +14,10 @@ import {ColleagueService} from "../../../providers/colleague.service";
   styleUrls: ['./create-colleague-reactive-forms.component.scss']
 })
 export class CreateColleagueReactiveFormsComponent {
+  router = inject(Router);
   fb = inject(FormBuilder);
   colleagueService = inject(ColleagueService);
+
   validatorPseudo = new PseudoValidatorDirective();
   validatorFirstLast = new FirstLastValidatorDirective();
   vForm: FormGroup = this.fb.group({
@@ -37,8 +40,8 @@ export class CreateColleagueReactiveFormsComponent {
     }
     this.colleagueService.addColleague(colleague).subscribe(response => {
       console.log(response);
+      this.router.navigate(['/colleagues']).then();
     });
-    // console.log(colleague);
   }
   get pseudoErr() {
     const pseudoCtrl = this.vForm.get('pseudo');

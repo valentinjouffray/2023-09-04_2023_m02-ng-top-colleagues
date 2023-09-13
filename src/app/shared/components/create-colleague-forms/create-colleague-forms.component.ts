@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {ColleagueDetails} from "../../../models/colleague-details";
 import {ColleagueService} from "../../../providers/colleague.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'tc-create-colleague-forms',
@@ -9,6 +10,7 @@ import {ColleagueService} from "../../../providers/colleague.service";
 })
 export class CreateColleagueFormsComponent {
   colleagueService = inject(ColleagueService);
+  router = inject(Router);
 
   colleague: ColleagueDetails = {
     pseudo: '',
@@ -21,6 +23,7 @@ export class CreateColleagueFormsComponent {
   addColleague(colleague: ColleagueDetails) {
     this.colleagueService.addColleague(colleague).subscribe(response => {
       console.log(response);
+      this.router.navigate(['/colleagues']).then();
     });
   }
 }
