@@ -13,6 +13,6 @@ export class FirstLastValidatorDirective implements Validator {
     const first = control.get('first');
     let last = control.get('last');
     if (!last?.pristine && !first?.pristine) return last?.value === first?.value ? {firstLast: 'Le prénom doit être différent du nom'} : null;
-    return null
+    return null;
   }
 }
