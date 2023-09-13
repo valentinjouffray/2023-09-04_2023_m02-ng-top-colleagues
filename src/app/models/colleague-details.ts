@@ -1,7 +1,7 @@
 export interface ColleagueDetails {
   pseudo: string;
-  lastName: string;
-  firstName: string;
+  last: string;
+  first: string;
   score: number;
-  photoUrl: string;
+  photo: string;
 }

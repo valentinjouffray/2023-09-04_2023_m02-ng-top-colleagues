@@ -15,9 +15,9 @@ export class CreateColleagueFormsComponent {
   colleague: ColleagueDetails = {
     pseudo: '',
     score: 0,
-    photoUrl: '',
-    firstName: '',
-    lastName: ''
+    photo: '',
+    first: '',
+    last: ''
   }
 
   addColleague(colleague: ColleagueDetails) {

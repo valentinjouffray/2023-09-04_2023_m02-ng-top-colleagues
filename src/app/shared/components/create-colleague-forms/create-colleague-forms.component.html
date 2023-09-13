@@ -9,17 +9,17 @@
   </p>
   <p>
     <label for="last">Nom : </label>
-    <input type="text" name="last" id="last" required minlength="2" [(ngModel)]="colleague.lastName" #lastName="ngModel">
+    <input type="text" name="last" id="last" required minlength="2" [(ngModel)]="colleague.last" #lastName="ngModel">
     <span *ngIf="lastName.invalid && lastName.dirty">Nom invalide</span>
   </p>
   <p>
     <label for="first">Prénom : </label>
-    <input type="text" name="first" id="first" required minlength="2" [(ngModel)]="colleague.firstName" #firstName="ngModel">
+    <input type="text" name="first" id="first" required minlength="2" [(ngModel)]="colleague.first" #firstName="ngModel">
     <span *ngIf="firstName.invalid && firstName.dirty">Prénom invalide</span>
   </p>
   <p>
     <label for="photo">URL de photo : </label>
-    <input type="url" name="photo" id="photo" required [(ngModel)]="colleague.photoUrl" #photoUrl="ngModel">
+    <input type="url" name="photo" id="photo" required [(ngModel)]="colleague.photo" #photoUrl="ngModel">
     <span *ngIf="photoUrl.invalid && photoUrl.dirty">Url invalide</span>
   </p>
   <button (click)="addColleague(colleague)" type="submit" [disabled]="!formCtrl.valid">Ajouter</button>

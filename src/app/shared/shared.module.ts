@@ -16,6 +16,7 @@ import {
 } from './components/create-colleague-reactive-forms/create-colleague-reactive-forms.component';
 import {MenuComponentComponent} from './components/menu-component/menu-component.component';
 import {RouterModule} from "@angular/router";
+import { ColleagueDetailsComponent } from './components/colleague-details/colleague-details.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {RouterModule} from "@angular/router";
     FirstLastValidatorDirective,
     PseudoValidatorDirective,
     CreateColleagueReactiveFormsComponent,
-    MenuComponentComponent
+    MenuComponentComponent,
+    ColleagueDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import {RouterModule} from "@angular/router";
     CounterComponent,
     CreateColleagueFormsComponent,
     CreateColleagueReactiveFormsComponent,
-    MenuComponentComponent
+    MenuComponentComponent,
+    ColleagueDetailsComponent
   ]
 })
 export class SharedModule { }

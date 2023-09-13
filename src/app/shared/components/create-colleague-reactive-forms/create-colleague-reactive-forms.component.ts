@@ -33,10 +33,10 @@ export class CreateColleagueReactiveFormsComponent {
     const formData = this.vForm.value;
     let colleague: ColleagueDetails = {
       pseudo: formData.pseudo,
-      firstName: formData.first,
-      lastName: formData.last,
+      first: formData.first,
+      last: formData.last,
       score: 100,
-      photoUrl: formData.photo
+      photo: formData.photo
     }
     this.colleagueService.addColleague(colleague).subscribe(response => {
       console.log(response);

@@ -1,6 +1,6 @@
 <div class="colleague-container border border-black m-1 d-flex flex-column align-items-center py-3">
-  <img src="{{colleague.photo}}" alt="colleague icon" height="170" width="170">
-  <p><strong>{{colleague.pseudo | uppercase}}</strong></p>
+  <a [routerLink]="['/colleagues', colleague.pseudo]"><img src="{{colleague.photo}}" alt="colleague icon" height="170" width="170"></a>
+  <a [routerLink]="['/colleagues', colleague.pseudo]"><p><strong>{{colleague.pseudo | uppercase}}</strong></p></a>
   <p>{{colleague.score | score}}</p>
   <tc-like-hate (choice)="vote($event)" [isHateEnabled]="isHateEnabled" [isLikeEnabled]="isLikeEnabled"></tc-like-hate>
 </div>

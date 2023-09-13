@@ -31,9 +31,9 @@ export class ColleagueService {
       this.colleagueApiUrl,
       {
         "pseudo": colleague.pseudo,
-        "last": colleague.lastName,
-        "first": colleague.firstName,
-        "photo": colleague.photoUrl
+        "last": colleague.last,
+        "first": colleague.first,
+        "photo": colleague.photo
       }
     );
   }

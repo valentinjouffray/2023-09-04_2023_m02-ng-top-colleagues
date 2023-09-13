@@ -9,6 +9,7 @@ import {SharedModule} from './shared/shared.module';
 import {CreateColleagueModule} from "./pages/create-colleague/create-colleague.module";
 import { AppRoutingModule } from './app-routing.module';
 import {CreateColleagueReactiveModule} from "./pages/create-colleague-reactive/create-colleague-reactive.module";
+import {DisplayColleagueDetailsModule} from "./pages/display-colleague-details/display-colleague-details.module";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {CreateColleagueReactiveModule} from "./pages/create-colleague-reactive/c
     SharedModule,
     CreateColleagueModule,
     CreateColleagueReactiveModule,
+    DisplayColleagueDetailsModule,
     AppRoutingModule,
   ],
   providers: [],
