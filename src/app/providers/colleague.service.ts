@@ -10,7 +10,7 @@ import {ColleagueDetails} from "../models/colleague-details";
 export class ColleagueService {
   http = inject(HttpClient);
 
-  colleagueApiUrl = 'https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues';
+  colleagueApiUrl = 'https://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2/colleagues';
 
   colleagues: Colleague[] = []
 

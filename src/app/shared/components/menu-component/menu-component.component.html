@@ -1,5 +1,13 @@
-<nav>
-  <a routerLink="/colleagues">Accueil</a>
-  <a routerLink="/template-form">Formulaire template</a>
-  <a routerLink="/reactive-form">Formulaire reactive</a>
+<nav *ngIf="isLoggedIn" class="navbar navbar-expand-lg navbar-light bg-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/colleagues">Accueil</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/template-form">Formulaire template</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/reactive-form">Formulaire reactive</a>
+    </li>
+  </ul>
 </nav>

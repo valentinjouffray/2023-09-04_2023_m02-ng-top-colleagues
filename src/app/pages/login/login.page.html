@@ -1,0 +1,9 @@
+<form [formGroup]="formGroup" (ngSubmit)="login()">
+  <p>
+  <label for="pseudo"></label>Pseudo : <input type="text" id="pseudo" name="pseudo" formControlName="pseudo">
+  </p>
+  <p>
+  <label for="password"></label>Mot de passe : <input type="password" id="password" name="password" formControlName="password">
+  </p>
+  <button type="submit" [disabled]="formGroup.invalid">Se connecter</button>
+</form>

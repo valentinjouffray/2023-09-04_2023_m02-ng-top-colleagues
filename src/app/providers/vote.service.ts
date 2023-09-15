@@ -10,7 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class VoteService {
   colleagueService = inject(ColleagueService);
   http = inject(HttpClient);
-  voteApiUrl: string = 'https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes';
+  voteApiUrl: string = 'https://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2/votes';
 
   likeCounter$ = new Subject<number>();
   hateCounter$ = new Subject<number>();

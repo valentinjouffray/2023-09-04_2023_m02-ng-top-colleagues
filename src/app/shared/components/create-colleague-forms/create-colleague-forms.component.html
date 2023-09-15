@@ -1,29 +1,31 @@
-<h2>Créer un collègue en template driven</h2>
-<form class="container" #formCtrl="ngForm" tcFirstLastValidator>
-  <p>
-    <label for="pseudo">Pseudo : </label>
-    <input type="text" name="pseudo" id="pseudo" required [(ngModel)]="colleague.pseudo" #pseudo="ngModel" tcPseudoValidator>
-    <span *ngIf="pseudo.invalid && pseudo.dirty">Pseudo invalide</span>
-    <span *ngIf="pseudo.invalid && pseudo.dirty && pseudo.errors?.['required']">, le pseudo est requis</span>
-    <span *ngIf="pseudo.invalid && pseudo.dirty && pseudo.errors?.['pseudo']">, le pseudo est déjà utilisé</span>
-  </p>
-  <p>
-    <label for="last">Nom : </label>
-    <input type="text" name="last" id="last" required minlength="2" [(ngModel)]="colleague.last" #lastName="ngModel">
-    <span *ngIf="lastName.invalid && lastName.dirty">Nom invalide</span>
-  </p>
-  <p>
-    <label for="first">Prénom : </label>
-    <input type="text" name="first" id="first" required minlength="2" [(ngModel)]="colleague.first" #firstName="ngModel">
-    <span *ngIf="firstName.invalid && firstName.dirty">Prénom invalide</span>
-  </p>
-  <p>
-    <label for="photo">URL de photo : </label>
-    <input type="url" name="photo" id="photo" required [(ngModel)]="colleague.photo" #photoUrl="ngModel">
-    <span *ngIf="photoUrl.invalid && photoUrl.dirty">Url invalide</span>
-  </p>
-  <button (click)="addColleague(colleague)" type="submit" [disabled]="!formCtrl.valid">Ajouter</button>
-  <p *ngIf="formCtrl.errors && formCtrl.errors?.['firstLast']">
-    {{formCtrl.errors['firstLast']}}
-  </p>
-</form>
+<section class="container">
+  <h2>Créer un collègue en template driven</h2>
+  <form class="container" #formCtrl="ngForm" tcFirstLastValidator>
+    <p>
+      <label for="pseudo">Pseudo : </label>
+      <input type="text" name="pseudo" id="pseudo" required [(ngModel)]="colleague.pseudo" #pseudo="ngModel" tcPseudoValidator>
+      <span *ngIf="pseudo.invalid && pseudo.dirty">Pseudo invalide</span>
+      <span *ngIf="pseudo.invalid && pseudo.dirty && pseudo.errors?.['required']">, le pseudo est requis</span>
+      <span *ngIf="pseudo.invalid && pseudo.dirty && pseudo.errors?.['pseudo']">, le pseudo est déjà utilisé</span>
+    </p>
+    <p>
+      <label for="last">Nom : </label>
+      <input type="text" name="last" id="last" required minlength="2" [(ngModel)]="colleague.last" #lastName="ngModel">
+      <span *ngIf="lastName.invalid && lastName.dirty">Nom invalide</span>
+    </p>
+    <p>
+      <label for="first">Prénom : </label>
+      <input type="text" name="first" id="first" required minlength="2" [(ngModel)]="colleague.first" #firstName="ngModel">
+      <span *ngIf="firstName.invalid && firstName.dirty">Prénom invalide</span>
+    </p>
+    <p>
+      <label for="photo">URL de photo : </label>
+      <input type="url" name="photo" id="photo" required [(ngModel)]="colleague.photo" #photoUrl="ngModel">
+      <span *ngIf="photoUrl.invalid && photoUrl.dirty">Url invalide</span>
+    </p>
+    <button (click)="addColleague(colleague)" type="submit" [disabled]="!formCtrl.valid">Ajouter</button>
+    <p *ngIf="formCtrl.errors && formCtrl.errors?.['firstLast']">
+      {{formCtrl.errors['firstLast']}}
+    </p>
+  </form>
+</section>

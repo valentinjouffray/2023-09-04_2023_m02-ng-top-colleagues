@@ -10,6 +10,9 @@ import {CreateColleagueModule} from "./pages/create-colleague/create-colleague.m
 import { AppRoutingModule } from './app-routing.module';
 import {CreateColleagueReactiveModule} from "./pages/create-colleague-reactive/create-colleague-reactive.module";
 import {DisplayColleagueDetailsModule} from "./pages/display-colleague-details/display-colleague-details.module";
+import {LoginModule} from "./pages/login/login.module";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -23,9 +26,12 @@ import {DisplayColleagueDetailsModule} from "./pages/display-colleague-details/d
     CreateColleagueModule,
     CreateColleagueReactiveModule,
     DisplayColleagueDetailsModule,
+    LoginModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
