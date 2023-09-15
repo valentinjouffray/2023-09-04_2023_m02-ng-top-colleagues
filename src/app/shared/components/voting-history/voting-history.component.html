@@ -4,8 +4,7 @@
     <li class="list-group-item">
       <p>{{vote.colleague.pseudo | uppercase}}</p>
       <p>{{vote.colleague.pseudo | uppercase}} est {{voteRemark(vote.vote)}}, son score est maintenant de {{vote.colleague.score}}</p>
-<!--      <button (click)="deleteVote(vote)">Supprimer</button>-->
-      <button>Supprimer</button>
+      <button (click)="deleteVote(vote)" class="btn btn-outline-danger">Supprimer</button>
     </li>
   </ul>
 </div>

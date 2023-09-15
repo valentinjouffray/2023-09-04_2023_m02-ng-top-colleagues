@@ -1,7 +1,6 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {AuthService} from "../../providers/auth.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {catchError} from "rxjs";
 import {Router} from "@angular/router";
 
 interface LoginResponse {
@@ -13,10 +12,14 @@ interface LoginResponse {
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss']
 })
-export class LoginPage {
+export class LoginPage implements OnInit {
   authService = inject(AuthService);
   formBuilder = inject(FormBuilder);
   route = inject(Router);
+
+  ngOnInit() {
+    if (this.authService.checkIsLoggedIn()) this.route.navigate(['/colleagues']).then();
+  }
 
   formGroup: FormGroup = this.formBuilder.group(
     {
@@ -37,7 +40,8 @@ export class LoginPage {
       next: response => {
         const loginResponse = response as LoginResponse;
         localStorage.setItem('token', loginResponse.jwt);
-        this.route.navigate(['colleagues']).then();
+        this.route.navigate(['/colleagues']).then();
+        console.log('moving');
       },
       error: () => {
         this.formGroup.patchValue({password: ''});

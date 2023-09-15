@@ -5,15 +5,35 @@ import {WelcomePageComponent} from "./pages/welcome/welcome-page/welcome-page.co
 import {CreateColleaguePage} from "./pages/create-colleague/create-colleague/create-colleague.page";
 import {CreateColleagueReactivePage} from "./pages/create-colleague-reactive/create-colleague-reactive.page";
 import {DisplayColleagueDetailsPage} from "./pages/display-colleague-details/display-colleague-details.page";
-import {LoginRoutingModule} from "./pages/login/login-routing.module";
+import {authGuard} from "./guard/auth.guard";
 
 const routes = [
-  { path: 'colleagues/:pseudo', component: DisplayColleagueDetailsPage},
-  { path: 'colleagues', component: WelcomePageComponent, title: 'Accueil'},
-  { path: 'template-form', component: CreateColleaguePage, title: 'Créer un collègue en template driven'},
-  { path: 'reactive-form', component: CreateColleagueReactivePage, title: 'Créer un collègue en code driven'},
-  // { path: '', pathMatch: 'full', redirectTo: '/colleagues'},
-  { path: '', loadChildren: LoginRoutingModule},
+  {
+    path: 'colleagues/:pseudo',
+    canActivate: [authGuard],
+    component: DisplayColleagueDetailsPage},
+  {
+    path: 'colleagues',
+    canActivate: [authGuard],
+    component: WelcomePageComponent, title: 'Accueil'
+  },
+  {
+    path: 'template-form',
+    canActivate: [authGuard],
+    component: CreateColleaguePage,
+    title: 'Créer un collègue en template driven'
+  },
+  {
+    path: 'reactive-form',
+    canActivate: [authGuard],
+    component: CreateColleagueReactivePage,
+    title: 'Créer un collègue en code driven'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+  },
+  { path: '', pathMatch: 'full', redirectTo: '/colleagues'},
 ] as Routes
 
 @NgModule({

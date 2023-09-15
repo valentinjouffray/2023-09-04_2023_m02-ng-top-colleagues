@@ -1,6 +1,7 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {Vote} from "../../../models/vote";
 import {VoteService} from "../../../providers/vote.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'tc-voting-history',
@@ -12,6 +13,8 @@ export class VotingHistoryComponent implements OnInit, OnDestroy {
 
   votes: Vote[] = [];
 
+  subVote!: Subscription;
+
   ngOnInit() {
     this.getVoteList();
   }
@@ -19,12 +22,12 @@ export class VotingHistoryComponent implements OnInit, OnDestroy {
   private getVoteList() {
     this.voteService.getVoteList().subscribe((votes: Vote[]) => {
       this.votes = votes;
-      this.voteService.subscribeToNewVotes().subscribe((vote: Vote) => this.votes.unshift(vote));
+      this.subVote = this.voteService.subscribeToNewVotes().subscribe((vote: Vote) => this.votes.unshift(vote));
     });
   }
 
   ngOnDestroy() {
-    this.voteService.unsubsscribeFromNewVotes();
+    this.subVote.unsubscribe();
   }
 
   voteRemark(voteValue: number): string {
@@ -32,6 +35,13 @@ export class VotingHistoryComponent implements OnInit, OnDestroy {
       return `aimé(e)`;
     } else {
       return 'détesté(e)';
+    }
+  }
+
+  deleteVote(vote: Vote) {
+    const indexOfVote = this.votes.indexOf(vote);
+    if (indexOfVote !== -1) {
+      this.votes.splice(indexOfVote, 1);
     }
   }
 }
